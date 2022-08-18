@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+## This is A React Web App that can be likened to a Computer-Based-Test exam undertaken by students in schools. The web app has different functions which include: 'Selecting the number of questions, Choosing the difficulty level of the exam, Calculating the students scores and displaying modal for the results'
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
