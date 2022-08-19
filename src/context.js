@@ -66,6 +66,17 @@ const AppProvider = ({ children }) => {
     })
   }
 
+  // Function To Check if the answer clicked is the correct answer
+  function checkAnswer(value) {
+    if (value) {
+      setCorrect((prev) => {
+        const next = prev + 1
+        return next
+      })
+    }
+    increaseIndexHandler()
+  }
+
   // Using useEffect to fetch the Data after component re-renders
   useEffect(() => {
     fetchData(tempURL)
@@ -81,6 +92,7 @@ const AppProvider = ({ children }) => {
     error, 
     openModal,
     increaseIndexHandler,
+    checkAnswer,
   }}>
 
     { children }

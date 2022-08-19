@@ -6,7 +6,7 @@ import Modal from './components/Modal';
 
 function App() {
   // Getting States Needed from useGloablContext
-  const { waiting, loading, questions, index, correct, increaseIndexHandler } = useGlobalContext()
+  const { waiting, loading, questions, index, correct, increaseIndexHandler, checkAnswer } = useGlobalContext()
 
     if (waiting ) {
       return <QuizForm />
@@ -32,7 +32,7 @@ function App() {
             <div className="btn-container">
               {answers.map((answer, index) => {
                 return (
-                  <button key={index} className="answer-btn" dangerouslySetInnerHTML={{__html: answer}} />
+                  <button onClick={() => checkAnswer(correct_answer === answer)} key={index} className="answer-btn" dangerouslySetInnerHTML={{ __html: answer }} />
                 )
               })}
             </div>
