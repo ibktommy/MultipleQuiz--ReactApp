@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0)
   const [correct, setCorrect] = useState(0)
   const [error, setError] = useState(false)
-  const [openModal, setIsOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
 
   // Fteching Data Funtion 
   const fetchData = async (url) => {
@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
       const newIndex = prevIndex + 1
 
       if (newIndex > questions.length - 1) {
-        // Open Modal
+        openModalHandler()
         return 0
       } else {
         return newIndex
@@ -77,6 +77,17 @@ const AppProvider = ({ children }) => {
     increaseIndexHandler()
   }
 
+  // Function To Open Modal
+  function openModalHandler() {
+    setOpenModal(true)
+  }
+  // Function To Close Modal
+  function closeModalHandler() {
+    setWaiting(true)
+    setCorrect(0)
+    setOpenModal(false)
+  }
+
   // Using useEffect to fetch the Data after component re-renders
   useEffect(() => {
     fetchData(tempURL)
@@ -93,6 +104,7 @@ const AppProvider = ({ children }) => {
     openModal,
     increaseIndexHandler,
     checkAnswer,
+    closeModalHandler,
   }}>
 
     { children }
