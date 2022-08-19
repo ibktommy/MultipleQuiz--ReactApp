@@ -1,6 +1,7 @@
 import React from 'react'
 import { useGlobalContext } from './context';
 import QuizForm from './components/QuizForm'
+import Loading from './components/Loading';
 
 function App() {
   // Getting States Needed from useGloablContext
@@ -11,7 +12,7 @@ function App() {
     }
 
     if (loading) {
-      return <loading />
+      return <Loading />
     }
 
     return (

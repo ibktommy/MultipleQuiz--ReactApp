@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
 // SETTING API ENDPOINT
@@ -6,6 +6,9 @@ const API_ENDPOINT = 'https://opentdb.com/api.php?'
 
 // Setting a Temporary URL
 const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
+
+// Setting the url
+// const url = ""
 
 // Setting the Context to a Variable
 const AppContext = React.createContext()
@@ -21,6 +24,22 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState(false)
   const [openModal, setIsOpenModal] = useState(false)
 
+  // Fteching Data Funtion 
+  const fetchData = async (url) => {
+    setLoading(true)
+    setWaiting(false)
+
+    const response = await axios(url).catch((error) => {
+      console.log(error.message)
+    })
+    console.log(response)
+  }
+
+  // Using useEffect to fetch the Data after component re-renders
+  useEffect(() => {
+    fetchData(tempURL)
+  }, [])
+
 
   return <AppContext.Provider value={{
     waiting,
@@ -33,7 +52,7 @@ const AppProvider = ({ children }) => {
   }}>
 
     { children }
-    
+
   </AppContext.Provider>
 }
 
