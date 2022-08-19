@@ -21,10 +21,25 @@ function App() {
   // Destructuring Objects from the questions array
   const { question, incorrect_answers, correct_answer } = questions[0]
   const answers = [...incorrect_answers, correct_answer]
-  
+
     return (
       <main>
-        <Modal />
+        {/* <Modal /> */}
+        <section className="quiz">
+          <p className="correct-answers">
+            correct_answers: {correct}/{index}
+          </p>
+          <article className='container'>
+            <h2 dangerouslySetInnerHTML={{__html: question}}/>
+            <div className="btn-container">
+              {answers.map((answer, index) => {
+                return (
+                  <button key={index} className="answer-btn" dangerouslySetInnerHTML={{__html: answer}} />
+                )
+              })}
+            </div>
+          </article>
+        </section>
       </main>
     )
 
