@@ -6,7 +6,7 @@ import Modal from './components/Modal';
 
 function App() {
   // Getting States Needed from useGloablContext
-  const { waiting, loading, questions, index, correct } = useGlobalContext()
+  const { waiting, loading, questions, index, correct, increaseIndexHandler } = useGlobalContext()
 
     if (waiting ) {
       return <QuizForm />
@@ -16,10 +16,8 @@ function App() {
       return <Loading />
     }
 
-  console.log(questions)
-
   // Destructuring Objects from the questions array
-  const { question, incorrect_answers, correct_answer } = questions[0]
+  const { question, incorrect_answers, correct_answer } = questions[index]
   const answers = [...incorrect_answers, correct_answer]
 
     return (
@@ -39,6 +37,7 @@ function App() {
               })}
             </div>
           </article>
+          <button onClick={increaseIndexHandler} className="next-question">Next Question</button>
         </section>
       </main>
     )

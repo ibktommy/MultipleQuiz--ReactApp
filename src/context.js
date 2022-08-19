@@ -52,6 +52,20 @@ const AppProvider = ({ children }) => {
     }
   }
 
+  // Function To Increase Index Value
+  function increaseIndexHandler() {
+    setIndex((prevIndex) => {
+      const newIndex = prevIndex + 1
+
+      if (newIndex > questions.length - 1) {
+        // Open Modal
+        return 0
+      } else {
+        return newIndex
+      }
+    })
+  }
+
   // Using useEffect to fetch the Data after component re-renders
   useEffect(() => {
     fetchData(tempURL)
@@ -66,6 +80,7 @@ const AppProvider = ({ children }) => {
     correct, 
     error, 
     openModal,
+    increaseIndexHandler,
   }}>
 
     { children }
