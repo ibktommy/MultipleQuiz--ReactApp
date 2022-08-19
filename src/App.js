@@ -17,7 +17,7 @@ function App() {
 
     return (
       <main>
-        Quiz Ap
+        Quiz App
       </main>
     )
 
