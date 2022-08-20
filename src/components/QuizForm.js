@@ -10,6 +10,10 @@ const QuizForm = () => {
       <section className="quiz quiz-small">
         <form className="setup-form">
           <h2>Quiz Form</h2>
+          {/* SHOW ERROR */}
+          {
+            error && <p className='error'>Failed To Generate Questions, please enter a different option</p>
+          }
           {/* Amount */}
           <div className="form-control">
             <label htmlFor="amount">
@@ -33,7 +37,7 @@ const QuizForm = () => {
           {/* DIFFICULTY */}
           <div className="form-control">
             <label htmlFor="difficulty">
-              difficulty
+              Select Difficulty
             </label>
             <select className='form-input' name="difficulty" id="difficulty" value={quizForm.difficulty} onChange={inputChangeHandler}>
               <option value="easy">easy</option>
