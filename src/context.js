@@ -3,6 +3,12 @@ import axios from 'axios'
 
 // SETTING API ENDPOINT
 const API_ENDPOINT = 'https://opentdb.com/api.php?'
+// Setting Object that contain number value used in the API url-parameter
+const categoryParams = {
+  sport: 21,
+  history: 23,
+  politics: 24,
+}
 
 // Setting a Temporary URL
 // const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
@@ -102,7 +108,7 @@ const AppProvider = ({ children }) => {
 
     // const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
 
-    const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
+    const url = `${API_ENDPOINT}amount=${amount}&category=${categoryParams[category]}&difficulty=${difficulty}&type=multiple`
 
     // Fetch Data Form Dynamic url when form-button is clicked
     fetchData(url)
