@@ -100,7 +100,10 @@ const AppProvider = ({ children }) => {
 
   // Function to handle Form-Input Change
   function inputChangeHandler(e) {
-    console.log(e)
+    const name = e.target.name
+    const value = e.target.value
+
+    setQuizForm({...quizForm, [name]: value})
   }
 
   // Using useEffect to fetch the Data after component re-renders
