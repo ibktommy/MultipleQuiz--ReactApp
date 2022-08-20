@@ -5,7 +5,7 @@ import axios from 'axios'
 const API_ENDPOINT = 'https://opentdb.com/api.php?'
 
 // Setting a Temporary URL
-const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
+// const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
 
 // Setting the url
 // const url = ""
@@ -96,6 +96,16 @@ const AppProvider = ({ children }) => {
   // Function to handle Form Submit
   function formSubmitHandler(e) {
     e.preventDefault()
+
+    // Get url options by destructuring the quizForm Object
+    const { amount, category, difficulty } = quizForm
+
+    // const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
+
+    const url = `${API_ENDPOINT}amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`
+
+    // Fetch Data Form Dynamic url when form-button is clicked
+    fetchData(url)
   }
 
   // Function to handle Form-Input Change
