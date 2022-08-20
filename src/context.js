@@ -23,6 +23,11 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0)
   const [error, setError] = useState(false)
   const [openModal, setOpenModal] = useState(false)
+  const [quizForm, setQuizForm] = useState({
+    amount: 10,
+    category: 'sports',
+    difficulty: 'easy'
+  })
 
   // Fteching Data Funtion 
   const fetchData = async (url) => {
@@ -88,10 +93,20 @@ const AppProvider = ({ children }) => {
     setOpenModal(false)
   }
 
+  // Function to handle Form Submit
+  function formSubmitHandler(e) {
+    e.preventDefault()
+  }
+
+  // Function to handle Form-Input Change
+  function inputChangeHandler(e) {
+    console.log(e)
+  }
+
   // Using useEffect to fetch the Data after component re-renders
-  useEffect(() => {
-    fetchData(tempURL)
-  }, [])
+  // useEffect(() => {
+  //   fetchData(tempURL)
+  // }, [])
 
 
   return <AppContext.Provider value={{
@@ -105,6 +120,9 @@ const AppProvider = ({ children }) => {
     increaseIndexHandler,
     checkAnswer,
     closeModalHandler,
+    quizForm,
+    formSubmitHandler,
+    inputChangeHandler,
   }}>
 
     { children }
