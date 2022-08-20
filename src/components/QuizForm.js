@@ -10,6 +10,7 @@ const QuizForm = () => {
       <section className="quiz quiz-small">
         <form className="setup-form">
           <h2>Quiz Form</h2>
+          
           {/* SHOW ERROR */}
           {
             error && <p className='error'>Failed To Generate Questions, please enter a different option</p>
@@ -45,6 +46,7 @@ const QuizForm = () => {
               <option value="hard">hard</option>
             </select>
           </div>
+
           {/* BUTTON */}
           <button className='submit-btn' type='submit' onClick={formSubmitHandler}>
             Click To Start Quiz

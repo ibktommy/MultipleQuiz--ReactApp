@@ -10,12 +10,6 @@ const categoryParams = {
   politics: 24,
 }
 
-// Setting a Temporary URL
-// const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
-
-// Setting the url
-// const url = ""
-
 // Setting the Context to a Variable
 const AppContext = React.createContext()
 
@@ -106,8 +100,6 @@ const AppProvider = ({ children }) => {
     // Get url options by destructuring the quizForm Object
     const { amount, category, difficulty } = quizForm
 
-    // const tempURL = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
-
     const url = `${API_ENDPOINT}amount=${amount}&category=${categoryParams[category]}&difficulty=${difficulty}&type=multiple`
 
     // Fetch Data Form Dynamic url when form-button is clicked
@@ -121,12 +113,6 @@ const AppProvider = ({ children }) => {
 
     setQuizForm({...quizForm, [name]: value})
   }
-
-  // Using useEffect to fetch the Data after component re-renders
-  // useEffect(() => {
-  //   fetchData(tempURL)
-  // }, [])
-
 
   return <AppContext.Provider value={{
     waiting,
